@@ -1,0 +1,15 @@
+<%- include ('partials/header.ejs'); %>
+<body>
+    <%- include ('partials/navbar.ejs'); %>
+    <div class="container mt-5">
+        <h2>Cadastro Tipo de Convenio</h2>
+        <form action="/salvar_tipo_convenio" method="POST">
+          <div class="form-group">
+            <label for="medico">Nome:</label>
+            <input type="text" class="form-control" id="nome" name="nome" required>
+          </div>
+          <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+        </form>
+      </div>
+</body>
+<%- include ('partials/footer.ejs'); %>

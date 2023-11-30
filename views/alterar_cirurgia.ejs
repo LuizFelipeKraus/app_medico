@@ -1,0 +1,48 @@
+<%- include ('partials/header.ejs'); %>
+<body>
+    <%- include ('partials/navbar.ejs'); %>
+    <div class="container mt-5">
+        <h2>Alterar Cirurgia</h2>
+        <form action="/alterar_cirurgia/<%= cirurgia.id %>" method="POST">
+            <div class="form-group">
+                <label for="medico">Médico:</label>
+                <input type="text" class="form-control" id="medico" name="medico" value="<%= cirurgia.medico %>" required>
+            </div>
+            <div class="form-group">
+                <label for="paciente">Paciente:</label>
+                <input type="text" class="form-control" id="paciente" name="paciente" value="<%= cirurgia.paciente %>" required>
+            </div>
+            <div class="form-group">
+                <label for="dia">Dia:</label>
+                <input type="date" class="form-control" id="dia" name="dia" value="<%= cirurgia.dia %>" required>
+            </div>
+            <div class="form-group">
+                <label for="hora">Hora:</label>
+                <input type="time" class="form-control" id="hora" name="hora" value="<%= cirurgia.hora %>" required>
+            </div>
+            <div class="form-check">
+                <input type="checkbox" class="form-check-input" id="pago" name="pago" <%= cirurgia.pago ? 'checked' : '' %>>
+                <label class="form-check-label" for="pago">Pago</label>
+            </div>
+            <br>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Tipos de Cirurgias</label>
+                <select class="form-control" id="tipoCirurgia" name="tipoCirurgiaId">
+                    <% TipoDeCirurgias.forEach(TipoDeCirurgia => { %>
+                        <option id="tipoCirurgiaId" value="<%= TipoDeCirurgia.id %>" <%= cirurgia.TipoDeCirurgium && cirurgia.TipoDeCirurgium.id === TipoDeCirurgia.id ? 'selected' : '' %>><%= TipoDeCirurgia.nome %> </option>
+                    <% }) %>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="exampleFormControlSelect1">Tipos de Convenios</label>
+                <select class="form-control" id="TipoDeConvenio" name="tipoConvenioId">
+                    <% TipoDeConvenios.forEach(TipoDeConvenio => { %>
+                        <option id="tipoConvenioId" value="<%= TipoDeConvenio.id %>" <%= cirurgia.TipoDeConvenio && cirurgia.TipoDeConvenio.id === TipoDeConvenio.id ? 'selected' : '' %>><%= TipoDeConvenio.nome %> </option>
+                    <% }) %>
+                </select>
+            </div>
+            <button type="submit" class="btn btn-primary mt-3">Salvar Alterações</button>
+        </form>
+    </div>
+</body>
+<%- include ('partials/footer.ejs'); %>

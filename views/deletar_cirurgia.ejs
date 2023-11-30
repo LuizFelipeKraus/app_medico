@@ -1,0 +1,21 @@
+<%- include ('partials/header.ejs'); %>
+
+    <body>
+        <%- include ('partials/navbar.ejs'); %>
+        <div class="container mt-5">
+            <h2>Confirmar Exclusão</h2>
+            <p>Você está prestes a excluir a cirurgia:</p>
+            <ul>
+                <li><strong>Médico:</strong> <%= cirurgia.medico %></li>
+                li><strong>Hora:</strong> <%= cirurgia.paciente %></li>
+                <li><strong>Dia:</strong> <%= cirurgia.dia %></li>
+                <li><strong>Hora:</strong> <%= cirurgia.hora %></li>
+                <!-- Adicione mais campos conforme necessário -->
+            </ul>
+            <form action="/deletar_cirurgia/<%= cirurgia.id %>" method="POST">
+                <button type="submit" class="btn btn-danger">Confirmar Exclusão</button>
+                <a href="/" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </body>
+    <%- include ('partials/footer.ejs'); %>
