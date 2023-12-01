@@ -1,15 +1,23 @@
 <%- include ('partials/header.ejs'); %>
-<body>
+
+  <body>
     <%- include ('partials/navbar.ejs'); %>
-    <div class="container mt-5">
-        <h2>Cadastro Tipo de Cirurgia</h2>
-        <form action="/salvar_tipo_cirurgia" method="POST">
-          <div class="form-group">
-            <label for="medico">Nome:</label>
-            <input type="text" class="form-control" id="nome" name="nome" required>
+      <div class="container mt-5">
+        <div class="row">
+          <div class="col-12">
+            <h2>Cadastro Tipo de Cirurgia</h2>
           </div>
-          <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
-        </form>
+          <div class="col-12">
+            <form action="/salvar_tipo_cirurgia" method="POST">
+              <div class="form-group">
+                <label for="medico">Nome:</label>
+                <input type="text" class="form-control" id="nome" name="nome" required pattern="[A-Za-z ]+"
+                  title="Apenas letras são permitidas">
+              </div>
+              <button type="submit" class="btn btn-primary mt-3">Cadastrar</button>
+            </form>
+          </div>
+        </div>
       </div>
-</body>
-<%- include ('partials/footer.ejs'); %>
+  </body>
+  <%- include ('partials/footer.ejs'); %>

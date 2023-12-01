@@ -7,6 +7,8 @@ const TipoDeConvenio = require('./database/TipoDeConvenio');
 const Cirurgia = require('./database/Cirurgia');
 const bcrypt = require('bcrypt');
 const Usuario = require('./database/Usuario');
+const port = 8080
+
 
 const session = require('express-session');
 
@@ -321,6 +323,6 @@ app.post('/salvar_tipo_convenio', (req, res) => {
 
 
 
-app.listen(8080, () =>{
-    console.log("App Rodando!!")
-})
+app.listen(port, '0.0.0.0', () => {
+    console.log(`Servidor rodando em http://0.0.0.0:${port}`);
+  });

@@ -3,56 +3,64 @@
     <body>
         <%- include ('partials/navbar.ejs'); %>
             <div class="container">
-                <h1>Lista Cirurgias</h1>
-                <div class="table-responsive">
-                    <table class="table table-striped">
-                        <thead>
-                            <tr>
-                                <th scope="col">Médico</th>
-                                <th scope="col">Paciente</th>
-                                <th scope="col">Dia</th>
-                                <th scope="col">Hora</th>
-                                <th scope="col">Pago</th>
-                                <th scope="col">Tipo de Cirurgia</th>
-                                <th scope="col">Tipo de Convenio</th>
-                                <th scope="col">Alterar</th>
-                                <th scope="col">Deletar</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <% cirurgias.forEach(cirurgia=> { %>
-                                <tr>
-                                    <td>
-                                        <%= cirurgia.medico %>
-                                    </td>
-                                    <td>
-                                        <%= cirurgia.paciente %>
-                                    </td>
-                                    <td>
-                                        <%= cirurgia.dia %>
-                                    </td>
-                                    <td>
-                                        <%= cirurgia.hora %>
-                                    </td>
-                                    <td>
-                                        <%= cirurgia.pago ? 'Sim' : 'Não' %>
-                                    </td>
-                                    <td>
-                                        <%= cirurgia.TipoDeCirurgium.nome %>
-                                    </td>
-                                    <td>
-                                        <%= cirurgia.TipoDeConvenio.nome %>
-                                    </td>
-                                    <td>
-                                        <a href="/alterar_cirurgia/<%= cirurgia.id %>" class="btn btn-primary">Alterar</a>
-                                    </td>
-                                    <td>
-                                        <a href="/deletar_cirurgia/<%= cirurgia.id %>" class="btn btn-danger">Deletar</a>
-                                    </td>
-                                </tr>
-                                <% }) %>
-                        </tbody>
-                    </table>
+                <div class="row">
+                    <div class="col-12">
+                        <h1>Lista Cirurgias</h1>
+                    </div>
+                    <div class="col-12">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th scope="col">Médico</th>
+                                        <th scope="col">Paciente</th>
+                                        <th scope="col">Dia</th>
+                                        <th scope="col">Hora</th>
+                                        <th scope="col">Pago</th>
+                                        <th scope="col">Tipo de Cirurgia</th>
+                                        <th scope="col">Tipo de Convenio</th>
+                                        <th scope="col">Alterar</th>
+                                        <th scope="col">Deletar</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <% cirurgias.forEach(cirurgia=> { %>
+                                        <tr>
+                                            <td>
+                                                <%= cirurgia.medico %>
+                                            </td>
+                                            <td>
+                                                <%= cirurgia.paciente %>
+                                            </td>
+                                            <td>
+                                                <%= cirurgia.dia %>
+                                            </td>
+                                            <td>
+                                                <%= cirurgia.hora %>
+                                            </td>
+                                            <td>
+                                                <%= cirurgia.pago ? 'Sim' : 'Não' %>
+                                            </td>
+                                            <td>
+                                                <%= cirurgia.TipoDeCirurgium.nome %>
+                                            </td>
+                                            <td>
+                                                <%= cirurgia.TipoDeConvenio.nome %>
+                                            </td>
+                                            <td>
+                                                <a href="/alterar_cirurgia/<%= cirurgia.id %>"
+                                                    class="btn btn-primary">Alterar</a>
+                                            </td>
+                                            <td>
+                                                <a href="/deletar_cirurgia/<%= cirurgia.id %>"
+                                                    class="btn btn-danger">Deletar</a>
+                                            </td>
+                                        </tr>
+                                        <% }) %>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
                 </div>
             </div>
     </body>
